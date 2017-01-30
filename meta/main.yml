@@ -1,2 +1,21 @@
 dependencies:
   - ChristopherDavenport.universal-tomcat
+
+galaxy_info:
+  author: Christopher Davenport
+  description: Universal Tomcat Installer
+  company: Eckerd College
+  license: MIT
+
+  min_ansible_version: 2.1
+
+  galaxy_tags:
+    - tomcat
+    - systemd
+    - deployment
+    - systems
+
+  platforms:
+    - name: EL
+      versions:
+        - 7
