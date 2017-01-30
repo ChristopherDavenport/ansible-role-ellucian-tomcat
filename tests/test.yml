@@ -11,6 +11,8 @@
     ellucian_tomcat_banproxy_password: fakebanproxypassword
     ellucian_tomcat_banssuser_password: fakebanssuser_password
 
+    ellucian_tomcat_extra_libs_path: ""
+
   pre_tasks:
     - name: Update apt cache.
       apt: update_cache=yes
