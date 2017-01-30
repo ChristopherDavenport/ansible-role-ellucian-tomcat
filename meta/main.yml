@@ -16,6 +16,15 @@ galaxy_info:
     - systems
 
   platforms:
+  - name: Fedora
+    versions:
+      - 23
+  - name: Ubuntu
+    versions:
+      - xenial
+  - name: Debian
+    versions:
+      - jessie
     - name: EL
       versions:
         - 7

@@ -27,6 +27,23 @@ env:
     init: /usr/lib/systemd/systemd
     run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
 
+  # Other OS's
+  - distribution: Ubuntu
+    distribution_version: xenial
+    version: "8.5.6"
+    init: /lib/systemd/systemd
+    run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
+  - distribution: Debian
+    distribution_version: jessie
+    version: "8.5.6"
+    init: /lib/systemd/systemd
+    run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
+  - distribution: Fedora
+    distribution_version: "23"
+    version: "8.5.6"
+    init: /usr/lib/systemd/systemd
+    run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
+
 before_install:
   # Pull container.
   - 'docker pull ansiblecheck/ansiblecheck:${distribution,,}-${distribution_version}'
