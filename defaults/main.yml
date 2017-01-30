@@ -8,7 +8,7 @@
 # ellucian_tomcat_banssuser_password:
 #
 # Optional
-# ellucian_tomcat_hostname:
+
 
 # Location Of Extra Libs - ojdbc6.jar and xdb6.jar
 # ellucian_tomcat_extra_libs_path:
@@ -25,10 +25,14 @@ ellucian_tomcat_xms: 2048m
 ellucian_tomcat_xmx: 4g
 ellucian_tomcat_maxpermsize: 1024m
 
+ellucian_tomcat_rim_hostname: "{{ ansible_default_ipv4.address }}"
+
 # One Of SelfService, Admin, Either
 ellucian_tomcat_config_type: Either
 
 ellucian_tomcat_timezone: America/NewYork
+
+
 
 
 ##### Variables Configured By Initial Variables ###############################
