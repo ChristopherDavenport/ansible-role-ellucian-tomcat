@@ -1,0 +1,40 @@
+---
+- hosts: localhost
+  vars:
+    java_type: Open
+    java_version: "8"
+
+    ellucian_tomcat_db_hostname: testdb.school.edu
+    ellucian_tomcat_db_port: "2322"
+    ellucian_tomcat_db_sid: TEST
+
+    ellucian_tomcat_banproxy_password: fakebanproxypassword
+    ellucian_tomcat_banssuser_password: fakebanssuser_password
+
+  pre_tasks:
+    - name: Update apt cache.
+      apt: update_cache=yes
+      changed_when: False
+      when: ansible_os_family == 'Debian'
+  roles:
+    - ChristopherDavenport.universal-java
+    - role_under_test
+  post_tasks:
+
+    - name: Cat Context.xml
+      command: /bin/cat {{ tomcat_catalina_home }}/conf/context.xml
+      register: context_xml_details
+      changed_when: False
+
+    - name: Debug Context.xml
+      debug: var=context_xml_details.stdout_lines
+      changed_when: False
+
+    - name: Cat Server.xml
+      command: /bin/cat {{ tomcat_catalina_home }}/conf/context.xml
+      register: server_xml_details
+      changed_when: False
+
+    - name: Debug Server.xml
+      debug: var=context_xml_details.stdout_lines
+      changed_when: False
