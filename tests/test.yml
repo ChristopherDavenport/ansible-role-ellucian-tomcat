@@ -33,10 +33,19 @@
       changed_when: False
 
     - name: Cat Server.xml
-      command: /bin/cat {{ tomcat_catalina_home }}/conf/context.xml
+      command: /bin/cat {{ tomcat_catalina_home }}/conf/server.xml
       register: server_xml_details
       changed_when: False
 
     - name: Debug Server.xml
-      debug: var=context_xml_details.stdout_lines
+      debug: var=server_xml_details.stdout_lines
+      changed_when: False
+
+    - name: Cat Tomcat Service File
+      command: /bin/cat /etc/systemd/system/tomcat.service
+      register: service_details
+      changed_when: False
+
+    - name: Debug Tomcat Service File
+      debug: var=service_details.stdout_lines
       changed_when: False
