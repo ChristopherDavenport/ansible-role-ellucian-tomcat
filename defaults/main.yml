@@ -6,6 +6,9 @@
 
 # ellucian_tomcat_banproxy_password:
 # ellucian_tomcat_banssuser_password:
+#
+# Optional
+# ellucian_tomcat_hostname:
 
 # Location Of Extra Libs - ojdbc6.jar and xdb6.jar
 # ellucian_tomcat_extra_libs_path:

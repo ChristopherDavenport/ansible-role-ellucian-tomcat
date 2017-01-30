@@ -17,4 +17,8 @@ tomcat_catalina_opts: >-
   -Dcom.sun.management.remote.port=8999
   -Dcom.sun.management.remote.ssl=false
   -Dcom.sun.management.remote.ssl=authenticate=false
+  {% if ellucian_tomcat_hostname is defined and ellucian_tomcat_hostname not in (None, "") %}
+  -Djava.rim.server.hostname={{ ellucian_tomcat_hostname }}
+  {% else if ansible_default_ipv4 is defined %}
   -Djava.rim.server.hostname={{ ansible_default_ipv4.address }}
+  {% endif %}
