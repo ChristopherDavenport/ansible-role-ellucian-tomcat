@@ -13,7 +13,7 @@
 
     ellucian_tomcat_rim_hostname: fakehostname
 
-    ellucian_tomcat_extra_libs_path: ""
+    ellucian_tomcat_extra_libs_path: []
 
   pre_tasks:
     - name: Update apt cache.
