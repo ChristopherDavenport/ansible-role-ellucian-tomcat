@@ -1,0 +1,20 @@
+---
+
+tomcat_version: "{{ ellucian_tomcat_version }}"
+tomcat_extra_libs_path: "{{ ellucian_tomcat_extra_libs_path }}"
+
+tomcat_configure_configs: false
+
+tomcat_java_opts: >-
+  -Duser.timezone={{ ellucian_tomcat_timezone }}
+  -Dlog4j.configuration=config.properties
+  -Xms{{ ellucian_tomcat_xms }}
+  -Xmx{{ ellucian_tomcat_xmx }}
+  -XX:MaxPermSize={{ ellucian_tomcat_maxpermsize }}
+
+tomcat_catalina_opts: >-
+  -Doom.sun.management.jmxremote
+  -Dcom.sun.management.remote.port=8999
+  -Dcom.sun.management.remote.ssl=false
+  -Dcom.sun.management.remote.ssl=authenticate=false
+  -Djava.rim.server.hostname={{ ansible_default_ipv4.address }}

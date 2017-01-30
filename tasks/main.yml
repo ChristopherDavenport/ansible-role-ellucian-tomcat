@@ -1,0 +1,20 @@
+---
+
+- name: Configure context.xml
+  template:
+    src: context.xml.j2
+    dest: "{{ tomcat_instance_path }}/conf/context.xml"
+    owner: "{{ tomcat_user_name }}"
+    group: "{{ tomcat_user_group }}"
+    mode: 0640
+  notify: Restart Tomcat
+
+
+- name: Configure server.xml
+  template:
+    src: server.xml.j2
+    dest: "{{ tomcat_instance_path }}/conf/server.xml"
+    owner: "{{ tomcat_user_name }}"
+    group: "{{ tomcat_user_group }}"
+    mode: 0640
+  notify: Restart Tomcat
