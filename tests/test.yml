@@ -21,7 +21,6 @@
       changed_when: False
       when: ansible_os_family == 'Debian'
   roles:
-    - ChristopherDavenport.universal-java
     - role_under_test
   post_tasks:
 
