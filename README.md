@@ -10,14 +10,23 @@ The [full appserver can be found here](https://github.com/ChristopherDavenport/a
 
 ### Requirements
 
-None
+-   None
 
-### Role Variables
+## Role Variables
 
-The first 5 are non-optional variables that are required to start. As
-they will attempt to connect to the database. To do so paths will need
-to be provided for the `ellucian_tomcat_extra_libs_path` for the dependencies
-used.
+`ellucian_tomcat_db_hostname` is the hostname of your Banner Database  
+
+`ellucian_tomcat_db_port` is the port of the database.  
+
+`ellucian_tomcat_db_sid` is the sid of the database.
+
+`ellucian_tomcat_banproxy_password` and `ellucian_tomcat_banssuser_password`
+are required passwords for connecting to the database.
+
+`ellucian_tomcat_extra_libs_path` is a list of extra dependencies to add,
+which should be xdb6.jar and ojdbc6.jar
+
+Full list of defaults are
 
 ```yaml
 # ellucian_tomcat_db_hostname:
@@ -52,9 +61,6 @@ ellucian_tomcat_config_type: Either
 
 ellucian_tomcat_timezone: America/NewYork
 
-
-
-
 ##### Variables Configured By Initial Variables ###############################
 
 ellucian_tomcat_banproxy_jdbc_url: jdbc:oracle:thin:@//{{ ellucian_tomcat_db_hostname }}:{{ ellucian_tomcat_db_port }}/{{ ellucian_tomcat_db_sid }}
@@ -71,3 +77,33 @@ ellucian_tomcat_banssuser_maxwait: "30000"
 ellucian_tomcat_logfiledir: "{{ catalina_home }}/logs"
 
 ```
+
+## Dependencies
+
+-   [ChristopherDavenport.universal-tomcat](https://galaxy.ansible.com/ChristopherDavenport/universal-tomcat/)
+-   [ChristopherDavenport.universal-java](https://galaxy.ansible.com/ChristopherDavenport/universal-java/)
+
+## Example Playbook
+
+```
+- hosts: appserver
+  vars:
+    ellucian_tomcat_db_hostname: banner.test.school.edu
+    ellucian_tomcat_db_port: "2322"
+    ellucian_tomcat_db_sid: TEST
+    ellucian_tomcat_banproxy_password: "fakeBanProxyPass"
+    ellucian_tomcat_banssuser_password: "fakeBanSSUserPass"
+    ellucian_tomcat_extra_libs_path:
+      - "/home/fakeuser/lib/ojdbc6.jar"
+      - "/home/fakeuser/lib/xdb6.jar"
+  roles:
+    - ChristopherDavenport.ellucian-tomcat
+```
+
+### License
+
+MIT
+
+### Author Information
+
+This role was created in 2016 by Christopher Davenport.
