@@ -31,7 +31,7 @@ env:
     version: "8.0.38"
     init: /usr/lib/systemd/systemd
     run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
-  - distribution: EL
+  - distribution: OracleLinux
     distribution_version: "7"
     version: "8.0.38"
     init: /usr/lib/systemd/systemd
@@ -41,7 +41,7 @@ env:
     version: "6.0.47"
     init: /usr/lib/systemd/systemd
     run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
-  - distribution: EL
+  - distribution: OracleLinux
     distribution_version: "7"
     version: "6.0.47"
     init: /usr/lib/systemd/systemd
