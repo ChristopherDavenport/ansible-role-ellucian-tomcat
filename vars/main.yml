@@ -14,7 +14,7 @@ tomcat_java_opts: >-
 
 
 
-tomcat_catalina_opts: >
+tomcat_catalina_opts: >-
   -Doom.sun.management.jmxremote
   -Dcom.sun.management.remote.port=8999
   -Dcom.sun.management.remote.ssl=false
