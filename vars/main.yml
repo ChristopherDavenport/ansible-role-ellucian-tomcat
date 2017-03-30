@@ -3,7 +3,7 @@
 tomcat_version: "{{ ellucian_tomcat_version }}"
 tomcat_extra_libs_path: "{{ ellucian_tomcat_extra_libs_path }}"
 
-tomcat_configure_configs: false
+# tomcat_configure_configs: false
 
 tomcat_java_opts: >-
   -Duser.timezone={{ ellucian_tomcat_timezone }}
