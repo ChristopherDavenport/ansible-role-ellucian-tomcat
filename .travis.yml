@@ -6,61 +6,51 @@ env:
   # Supported Version and OS - MUST PASS
   - distribution: EL
     distribution_version: "7"
-    version: "7.0.72"
+    version: "7.0.76"
     init: /usr/lib/systemd/systemd
     run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
   - distribution: OracleLinux
     distribution_version: "7"
-    version: "7.0.72"
+    version: "7.0.76"
     init: /usr/lib/systemd/systemd
     run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
 
   # OS Supported
   - distribution: EL
     distribution_version: "7"
-    version: "8.5.6"
+    version: "8.5.12"
     init: /usr/lib/systemd/systemd
     run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
   - distribution: OracleLinux
     distribution_version: "7"
-    version: "8.5.6"
+    version: "8.5.12"
     init: /usr/lib/systemd/systemd
     run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
   - distribution: EL
     distribution_version: "7"
-    version: "8.0.38"
+    version: "8.0.42"
     init: /usr/lib/systemd/systemd
     run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
   - distribution: OracleLinux
     distribution_version: "7"
-    version: "8.0.38"
-    init: /usr/lib/systemd/systemd
-    run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
-  - distribution: EL
-    distribution_version: "7"
-    version: "6.0.47"
-    init: /usr/lib/systemd/systemd
-    run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
-  - distribution: OracleLinux
-    distribution_version: "7"
-    version: "6.0.47"
+    version: "8.0.42"
     init: /usr/lib/systemd/systemd
     run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
 
   # Other OS's
   - distribution: Ubuntu
     distribution_version: xenial
-    version: "8.5.6"
+    version: "8.5.12"
     init: /lib/systemd/systemd
     run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
   # - distribution: Debian
   #   distribution_version: jessie
-  #   version: "8.5.6"
+  #   version: "8.5.12"
   #   init: /lib/systemd/systemd
   #   run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
   - distribution: Fedora
     distribution_version: "23"
-    version: "8.5.6"
+    version: "8.5.12"
     init: /usr/lib/systemd/systemd
     run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
 
