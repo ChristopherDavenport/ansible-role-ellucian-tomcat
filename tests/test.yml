@@ -15,6 +15,12 @@
 
     ellucian_tomcat_extra_libs_path: []
 
+    test_user: tomcat
+    tomcat_users:
+      - name: "{{ test_user }}"
+        password: "{{ test_user }}"
+        roles: "manager-gui,admin-gui"
+
   pre_tasks:
     - name: Update apt cache.
       apt: update_cache=yes
@@ -50,3 +56,19 @@
     - name: Debug Tomcat Service File
       debug: var=service_details.stdout_lines
       changed_when: False
+
+    - name: Wait For Service to Come Online
+      pause:
+        seconds: 10
+
+    - name: Check Manager Application
+      uri:
+        url: http://0.0.0.0:8080/manager
+        return_content: yes
+        follow_redirects: all
+        user: "{{ test_user }}"
+        password: "{{ test_user }}"
+      register: __tomcat_webpage
+
+    - name: Debug Webpage
+      debug: var=__tomcat_webpage
